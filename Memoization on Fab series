@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int lookup[100];
+
+void initialize(){
+    for (int i=0;i<100;i++){
+        lookup[i]=0;
+    }
+}
+
+int fab(int num){
+    if(lookup[num]==0){
+        if (num==1 || num ==0){
+            lookup[num]=1;
+        }
+        else{
+            lookup[num]=fab(num-1)+fab(num-2);
+        }
+    }
+    return lookup[num];
+}
+int main(){
+    initialize();
+    int n;cin>>n;
+    cout<<fab(n);
+    return 0;
+}
+
